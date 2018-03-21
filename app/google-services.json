@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "704173596410",
+    "firebase_url": "https://tasktracker-c4aa3.firebaseio.com",
+    "project_id": "tasktracker-c4aa3",
+    "storage_bucket": "tasktracker-c4aa3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704173596410:android:96d3553114194dd5",
+        "android_client_info": {
+          "package_name": "com.blueotter.hainguyenminh.tasktracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704173596410-e3sprlcs9ogbdsmpg29eog0522djvq8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcyN7HeNaoN0xv9f73Ftay4hJCsD2ohLM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

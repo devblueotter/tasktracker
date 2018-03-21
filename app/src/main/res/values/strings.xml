@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TaskTracker</string>
+    <string name="task_tracker">Task Tracker</string>
+    <string name="facebook_app_id">299947310534849</string>
+    <string name="fb_login_protocol_scheme">fb299947310534849</string>
+    <string name="add_new_task">Add new task</string>
+</resources>
