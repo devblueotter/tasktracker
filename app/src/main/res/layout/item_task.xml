@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+
+    <Button
+        android:id="@+id/btnTaskName"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp5"
+        android:layout_weight="1"
+        android:background="@drawable/selector_rectangle_button"
+        android:text="Name"
+        />
+    <Button
+        android:id="@+id/btnTaskAction"
+        android:layout_width="@dimen/dp0"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp5"
+        android:layout_weight="1"
+        android:background="@drawable/selector_rectangle_button"
+        android:text="Action"
+        />
+</LinearLayout>
