@@ -88,6 +88,7 @@ public class TasksActivity extends AppCompatActivity
         accessToken = SharedPreferenceHelper.getInstance(getApplicationContext())
                 .get(SharedPreferenceHelper.PREF_KEY_FACEBOOK_ACCESS_TOKEN, AccessToken.class);
         tasksPresenter = new TasksPresenter(this);
+        tasksPresenter.loadTasks();
         tasksPresenter.checkTaskAvailable();
     }
 
