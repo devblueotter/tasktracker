@@ -4,11 +4,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.blueotter.hainguyenminh.tasktracker.base.DataCallback;
 import com.blueotter.hainguyenminh.tasktracker.data.local.db.Task;
-import com.google.android.gms.tasks.Tasks;
+import com.blueotter.hainguyenminh.tasktracker.ui.task.TasksPresenter;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by HaiNM on 21/03/2018.
@@ -28,16 +28,32 @@ public class TasksRepository implements TasksDataSource {
 
     @Override
     public void getTasks(DatabaseReference databaseReference, final DataCallback dataCallback) {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Tasks tasks = dataSnapshot.getValue(Tasks.class);
-                dataCallback.onSuccess(tasks);
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Task task = dataSnapshot.getValue(Task.class);
+                dataCallback.onSuccess(task);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Task task = dataSnapshot.getValue(Task.class);
+                dataCallback.onSuccess(task);
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                dataCallback.onError(databaseError.getCode());
+
             }
         });
     }
@@ -65,5 +81,38 @@ public class TasksRepository implements TasksDataSource {
     @Override
     public void activateTask(@NonNull String taskId) {
 
+    }
+
+    @Override
+    public void getTasks(DatabaseReference databaseReference,
+            final TasksPresenter.OnTaskEventListener onTaskEventListener) {
+        databaseReference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Task task = dataSnapshot.getValue(Task.class);
+                onTaskEventListener.onTaskAdded(task);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Task task = dataSnapshot.getValue(Task.class);
+                onTaskEventListener.onTaskChanged(task);
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
