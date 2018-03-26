@@ -80,8 +80,6 @@ public class LoginActivity extends AppCompatActivity
 
     private void setAction() {
         btnConnectWithFb.setOnClickListener(this);
-        //loginButton.setReadPermissions("email");
-        //loginButton.registerCallback(callbackManager, loginResultFacebookCallback);
     }
 
     private void initView() {

@@ -33,15 +33,13 @@
             android:id="@+id/tvTaskCreateDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="02/03/2018" />
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/tvTaskCreateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="02:03 PM" />
+            android:gravity="center" />
     </LinearLayout>
 
     <View

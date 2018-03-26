@@ -21,7 +21,6 @@
         android:layout_below="@id/imvCloseTaskLogs"
         android:layout_marginBottom="@dimen/dp5"
         android:layout_marginLeft="@dimen/dp10"
-        android:text="March"
         android:textSize="@dimen/sp30" />
 
     <android.support.v7.widget.RecyclerView

@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">TaskTracker</string>
     <string name="task_tracker">Task Tracker</string>
-    <string name="facebook_app_id">299947310534849</string>
-    <string name="fb_login_protocol_scheme">fb299947310534849</string>
     <string name="add_new_task">Add New Task</string>
     <string name="task">Tasks</string>
     <string name="task_logs">Task logs</string>
@@ -12,4 +10,8 @@
     <string name="connect_with_facebook">Connect with Facebook</string>
     <string name="empty_task">You currently do not have any task in your log.\n  Now is a good time to start</string>
     <string name="task_saved">Task Saved</string>
+
+    <string name="facebook_app_id">299947310534849</string>
+    <string name="fb_login_protocol_scheme">fb299947310534849</string>
+
 </resources>
