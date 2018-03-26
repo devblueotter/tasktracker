@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
     <LinearLayout
         android:id="@+id/llTasks"
         android:layout_width="match_parent"
@@ -14,13 +13,12 @@
         android:layout_weight="1"
         android:background="@android:color/white"
         android:orientation="vertical"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp60"
-            android:background="@android:color/white"
-            >
+            android:background="@android:color/white">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,9 +28,8 @@
                 android:layout_marginBottom="@dimen/dp5"
                 android:layout_marginLeft="@dimen/dp10"
                 android:text="@string/task"
-                android:textSize="@dimen/sp30"
-                android:textStyle="bold"
-                />
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/sp30" />
 
             <TextView
                 android:id="@+id/tvTaskLogs"
@@ -41,9 +38,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="@dimen/dp10"
-                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp15"
                 android:text="@string/task_logs"
-                />
+                android:textColor="@color/color_connect_facebook" />
 
         </RelativeLayout>
 
@@ -53,8 +50,7 @@
             android:layout_height="@dimen/dp0"
             android:layout_marginBottom="@dimen/dp5"
             android:layout_weight="1"
-            android:background="@android:color/white"
-            />
+            android:background="@android:color/white" />
     </LinearLayout>
 
     <RelativeLayout
@@ -62,8 +58,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp0"
         android:layout_weight="1"
-        android:background="@android:color/white"
-        >
+        android:background="@android:color/white">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,9 +68,9 @@
             android:layout_marginRight="@dimen/dp30"
             android:text="@string/empty_task"
             android:textAlignment="center"
-            android:textSize="@dimen/sp20"
-            />
+            android:textSize="@dimen/sp20" />
     </RelativeLayout>
+
     <Button
         android:id="@+id/btnAddNewTask"
         android:layout_width="match_parent"
@@ -84,6 +80,5 @@
         android:background="@drawable/selector_rectangle_blue_button"
         android:text="@string/add_new_task"
         android:textAllCaps="false"
-        android:textColor="@color/color_connect_facebook"
-        />
+        android:textColor="@color/color_connect_facebook" />
 </LinearLayout>

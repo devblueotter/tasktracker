@@ -1,26 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="@dimen/dp80">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnTaskName"
-        android:layout_width="@dimen/dp0"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp5"
-        android:layout_weight="1"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/com_fb_button_background_color"
-        android:textColor="@android:color/white" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnTaskDetail"
-        android:layout_width="@dimen/dp0"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp5"
-        android:backgroundTint="@android:color/white"
-        android:layout_weight="1"
-        android:textAllCaps="false"
-        android:textColor="@android:color/darker_gray" />
-</LinearLayout>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnTaskName"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_weight="1"
+            android:backgroundTint="@color/com_fb_button_background_color"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnTaskDetail"
+            android:layout_width="@dimen/dp0"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp10"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/white"
+            android:textAllCaps="false"
+            android:textColor="@android:color/darker_gray" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/under_line_dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:background="@android:color/darker_gray"></View>
+
+</RelativeLayout>

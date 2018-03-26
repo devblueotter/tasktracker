@@ -25,7 +25,7 @@ public class TasksAdapter extends RecyclerView.Adapter {
     private Context context;
 
     public TasksAdapter(ArrayList<Task> arrTask, Context context,
-            OnTaskClicked onItemClickListener) {
+                        OnTaskClicked onItemClickListener) {
         this.arrTask = arrTask;
         this.context = context;
         this.onTaskClicked = onItemClickListener;
@@ -71,25 +71,27 @@ public class TasksAdapter extends RecyclerView.Adapter {
         @SuppressLint("RestrictedApi")
         public void setTaskData(int position) {
             Task task = arrTask.get(position);
-            btnTaskName.setText(task.getTaskName());
-            btnTaskDetail.setText(task.getTaskDescription());
             btnTaskName.setTag(position);
             btnTaskDetail.setTag(position);
             switch (task.getTaskStatus()) {
                 case Task.Status.CANCELLED:
+                    btnTaskName.setText(task.getTaskName());
                     btnTaskName.setSupportBackgroundTintList(
                             ContextCompat.getColorStateList(context,
                                     R.color.com_fb_button_background_color_focused_disabled));
                     break;
                 case Task.Status.DONE:
+                    btnTaskName.setText(task.getTaskName());
                     btnTaskName.setSupportBackgroundTintList(
                             ContextCompat.getColorStateList(context, R.color.colorAccent));
                     break;
                 case Task.Status.IDLE:
+                    btnTaskName.setText(task.getTaskName());
                     btnTaskName.setSupportBackgroundTintList(
                             ContextCompat.getColorStateList(context, R.color.task_status_idle));
                     break;
                 case Task.Status.PROCESSING:
+                    btnTaskName.setText(context.getString(R.string.task_saved));
                     btnTaskName.setSupportBackgroundTintList(
                             ContextCompat.getColorStateList(context,
                                     R.color.task_status_processing));

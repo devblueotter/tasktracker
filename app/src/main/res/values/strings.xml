@@ -11,4 +11,5 @@
     <string name="add_task">Add Task</string>
     <string name="connect_with_facebook">Connect with Facebook</string>
     <string name="empty_task">You currently do not have any task in your log.\n  Now is a good time to start</string>
+    <string name="task_saved">Task Saved</string>
 </resources>

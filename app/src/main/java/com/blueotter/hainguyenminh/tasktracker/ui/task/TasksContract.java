@@ -1,6 +1,7 @@
 package com.blueotter.hainguyenminh.tasktracker.ui.task;
 
 import android.support.annotation.NonNull;
+
 import com.blueotter.hainguyenminh.tasktracker.base.BasePresenter;
 import com.blueotter.hainguyenminh.tasktracker.base.BaseView;
 import com.blueotter.hainguyenminh.tasktracker.data.local.db.Task;
@@ -18,8 +19,6 @@ public interface TasksContract {
 
         void showTask(Task task);
 
-        void showAddTask();
-
         void showNoTasks();
 
         void updateTask(Task task);
@@ -27,14 +26,12 @@ public interface TasksContract {
 
     interface Presenter extends BasePresenter {
 
-        void loadTasks(DatabaseReference databaseReference);
+        void loadTasks();
 
-        void addNewTask();
-
-        void completeTask(@NonNull Task completedTask);
+        void addNewTask(Task task);
 
         void activateTask(@NonNull Task activeTask);
 
-        void checkTaskAvailable(DatabaseReference databaseReference);
+        void checkTaskAvailable();
     }
 }

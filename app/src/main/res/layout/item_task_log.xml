@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp50"
-    android:background="@android:color/white"
-    >
+    android:background="@android:color/white">
 
     <TextView
         android:id="@+id/tvTaskName"
@@ -12,9 +10,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="@dimen/dp10"
-        android:gravity="center"
-        android:text="Push up"
-        />
+        android:gravity="left|center" />
 
     <TextView
         android:id="@+id/tvTaskAction"
@@ -22,39 +18,38 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/dp30"
         android:layout_toRightOf="@id/tvTaskName"
-        android:gravity="center"
-        android:text="50"
-        />
+        android:gravity="center" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp15"
         android:background="@android:color/white"
         android:gravity="center"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/tvTaskCreateDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="02/03/2018"
-            />
+            android:text="02/03/2018" />
+
         <TextView
             android:id="@+id/tvTaskCreateTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="02:03 PM"
-            />
+            android:text="02:03 PM" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/under_line_dp"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/darker_gray"
-        ></View>
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:background="@android:color/darker_gray"></View>
 
 </RelativeLayout>

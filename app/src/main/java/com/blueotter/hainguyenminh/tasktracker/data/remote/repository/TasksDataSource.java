@@ -7,6 +7,7 @@ import com.blueotter.hainguyenminh.tasktracker.data.local.db.Task;
 import com.blueotter.hainguyenminh.tasktracker.ui.task.TasksPresenter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by HaiNM on 21/03/2018.
@@ -14,7 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 
 public interface TasksDataSource {
 
-    void getTasks(DatabaseReference databaseReference, DataCallback dataCallback);
+    void getTasks(DataCallback dataCallback);
+
+    void createTask(@NonNull Task task);
 
     void saveTask(@NonNull Task task);
 
@@ -26,5 +29,7 @@ public interface TasksDataSource {
 
     void activateTask(@NonNull String taskId);
 
-    void getTasks(DatabaseReference databaseReference, TasksPresenter.OnTaskEventListener onTaskEventListener);
+    void getTasks(TasksPresenter.OnTaskEventListener onTaskEventListener);
+
+    void checkTaskAvailable(ValueEventListener valueEventListener);
 }

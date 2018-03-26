@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.blueotter.hainguyenminh.tasktracker.R;
 import com.blueotter.hainguyenminh.tasktracker.data.local.db.Task;
+
 import java.util.ArrayList;
 
 /**
@@ -17,22 +19,9 @@ import java.util.ArrayList;
 public class TaskLogsAdapter extends RecyclerView.Adapter {
 
     private ArrayList<Task> arrTask;
-    private ArrayList<String> arrDateCreateTask;
 
     public TaskLogsAdapter(ArrayList<Task> arrTask) {
         this.arrTask = arrTask;
-        arrDateCreateTask = new ArrayList<>();
-        groupTaskByDate();
-    }
-
-    private void groupTaskByDate() {
-        for (Task task : arrTask) {
-            String[] dateCreateTask = task.getCreateDate().split(", ");
-            if (!arrDateCreateTask.contains(dateCreateTask[0])) {
-                arrDateCreateTask.add(dateCreateTask[0]);
-            }
-        }
-        Log.d("", arrDateCreateTask.size() + "");
     }
 
     @Override
@@ -54,8 +43,6 @@ public class TaskLogsAdapter extends RecyclerView.Adapter {
 
     public void updateData(ArrayList<Task> arrTask) {
         this.arrTask = arrTask;
-        arrDateCreateTask.clear();
-        groupTaskByDate();
         notifyDataSetChanged();
     }
 

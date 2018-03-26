@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.blueotter.hainguyenminh.tasktracker.R;
 import com.blueotter.hainguyenminh.tasktracker.data.local.db.Task;
 import com.blueotter.hainguyenminh.tasktracker.data.local.prefs.SharedPreferenceHelper;
@@ -25,7 +26,9 @@ import com.facebook.AccessToken;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -41,7 +44,6 @@ public class TasksActivity extends AppCompatActivity
     private Button btnAddNewTask;
     private RecyclerView rcvTasks;
     private TextView tvTaskLogs;
-    private DatabaseReference databaseReference;
     private AccessToken accessToken;
     private ArrayList<Task> arrTasks;
     private TasksAdapter tasksAdapter;
@@ -54,6 +56,7 @@ public class TasksActivity extends AppCompatActivity
     private AppCompatButton btnAddTask;
     //define for dialog view task logs
     private Dialog dlTasksLog;
+    private TextView tvTaskGroupByDate;
     private ImageView imvCloseTaskLogs;
     private RecyclerView rcvTaskLogs;
     private String newTaskName;
@@ -84,9 +87,8 @@ public class TasksActivity extends AppCompatActivity
 
         accessToken = SharedPreferenceHelper.getInstance(getApplicationContext())
                 .get(SharedPreferenceHelper.PREF_KEY_FACEBOOK_ACCESS_TOKEN, AccessToken.class);
-        databaseReference = FirebaseDatabase.getInstance().getReference(accessToken.getUserId());
         tasksPresenter = new TasksPresenter(this);
-        tasksPresenter.checkTaskAvailable(databaseReference);
+        tasksPresenter.checkTaskAvailable();
     }
 
     private void initView() {
@@ -122,10 +124,9 @@ public class TasksActivity extends AppCompatActivity
 
     private void addNewTask() {
         String taskRef = System.currentTimeMillis() + "";
-        tasksPresenter.addNewTask();
-        databaseReference.child(taskRef)
-                .setValue(new Task(Task.Status.IDLE, DateUtils.formatDateTime(), newTaskName,
-                        newTaskDescription, (random.nextInt(30) + 1), taskRef));
+        Task task = new Task(Task.Status.IDLE, DateUtils.formatDateTime(DateUtils.DATE_FORMAT_MDY), newTaskName,
+                newTaskDescription, (random.nextInt(30) + 1), taskRef);
+        tasksPresenter.addNewTask(task);
     }
 
     private boolean validateTask() {
@@ -143,7 +144,7 @@ public class TasksActivity extends AppCompatActivity
 
     @Override
     public void loadTasks() {
-        tasksPresenter.loadTasks(databaseReference);
+        tasksPresenter.loadTasks();
     }
 
     @Override
@@ -152,11 +153,6 @@ public class TasksActivity extends AppCompatActivity
         rlEmptyTask.setVisibility(View.GONE);
         arrTasks.add(task);
         tasksAdapter.updateData(arrTasks);
-    }
-
-    @Override
-    public void showAddTask() {
-
     }
 
     @Override
@@ -185,11 +181,6 @@ public class TasksActivity extends AppCompatActivity
     public void onTaskNameClicked(Task task) {
         indexUpdate = arrTasks.indexOf(task);
         tasksPresenter.activateTask(task);
-        task.setTaskStatus(Task.Status.PROCESSING);
-        databaseReference.getDatabase()
-                .getReference(accessToken.getUserId())
-                .child(task.getTaskRef())
-                .setValue(task);
     }
 
     @Override
@@ -229,6 +220,7 @@ public class TasksActivity extends AppCompatActivity
             dlTasksLog = new Dialog(this, android.R.style.Theme_Light_NoTitleBar_Fullscreen);
             dlTasksLog.setContentView(R.layout.dialog_task_logs);
 
+            tvTaskGroupByDate = dlTasksLog.findViewById(R.id.tvTaskGroupByDate);
             imvCloseTaskLogs = dlTasksLog.findViewById(R.id.imvCloseTaskLogs);
             rcvTaskLogs = dlTasksLog.findViewById(R.id.rcvTaskLogs);
 
@@ -237,6 +229,8 @@ public class TasksActivity extends AppCompatActivity
             rcvTaskLogs.setLayoutManager(new LinearLayoutManager(this));
             rcvTaskLogs.setAdapter(taskLogsAdapter);
         }
+        Date dateCreateTask = DateUtils.formatDateWithFormat(arrTasks.get(0).getCreateDate(), DateUtils.DATE_FORMAT_MDY);
+        tvTaskGroupByDate.setText(DateUtils.formatDateTime(DateUtils.DATE_FORMAT_MMM_DD_YYYY, dateCreateTask));
         taskLogsAdapter.updateData(arrTasks);
         dlTasksLog.show();
     }

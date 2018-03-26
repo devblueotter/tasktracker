@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imvCloseTaskLogs"
@@ -13,22 +12,22 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:contentDescription="@string/add_new_task"
-        android:src="@drawable/ic_close_gray_24dp"
-        />
+        android:src="@drawable/ic_close_gray_24dp" />
+
     <TextView
-        android:id="@+id/tvTaskGroupByMonth"
+        android:id="@+id/tvTaskGroupByDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imvCloseTaskLogs"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginLeft="@dimen/dp10"
         android:text="March"
-        android:textSize="@dimen/sp30"
-        />
+        android:textSize="@dimen/sp30" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rcvTaskLogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tvTaskGroupByMonth"
-        ></android.support.v7.widget.RecyclerView>
+        android:layout_below="@id/tvTaskGroupByDate"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
